@@ -10,6 +10,12 @@ namespace MobileShoppingProject.Controllers
     {
         public ActionResult Index()
         {
+            List<object> vals = new List<object>();
+
+            // 100 elements
+            object[] vals2 = new object[100];
+
+
             return View();
         }
     }
