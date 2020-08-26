@@ -8,14 +8,11 @@ namespace MobileShoppingProject.Controllers
     //[Authorize]
     public class HomeController : Controller
     {
+        testEntities _db = new testEntities();
+
         public ActionResult Index()
         {
-            List<object> vals = new List<object>();
-
-            // 100 elements
-            object[] vals2 = new object[100];
-
-
+            var data = _db.MobilePhoneDatas.ToList();
             return View();
         }
     }

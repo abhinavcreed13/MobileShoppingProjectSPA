@@ -24,6 +24,7 @@ namespace ShoppingDataDumper
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        public int Price { get; set; }
+        [JsonProperty("price")]
+        public string Price { get; set; }
     }
 }

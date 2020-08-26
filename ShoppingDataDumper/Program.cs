@@ -29,12 +29,12 @@ namespace ShoppingDataDumper
             foreach(MobilePhoneDataModel d in response.Data)
             {
                 Console.WriteLine("Adding ->" + d.DeviceName);
-                d.Price = _random.Next(400, 1400);
+                d.Price = _random.Next(400, 1400).ToString();
                 context.MobilePhoneData.Add(d);
             }
 
             // update database
-            //context.SaveChanges();
+            context.SaveChanges();
         }
     }
 }
