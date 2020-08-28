@@ -9,9 +9,15 @@ namespace MobileShoppingProject.Controllers
 {
     public class DataApiController : ApiController
     {
+        testEntities _db = new testEntities();
         public string Get()
         {
-            return "DataAPI is ready!";
+            return "Welcome to mobile shop!";
+        }
+
+        public List<MobilePhoneData> GetPhoneData()
+        {
+            return _db.MobilePhoneDatas.ToList();
         }
     }
 }

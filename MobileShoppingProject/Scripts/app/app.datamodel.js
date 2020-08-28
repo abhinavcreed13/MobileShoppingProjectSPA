@@ -6,6 +6,8 @@
 
     self.dataApiUrl = "/api/DataApi";
 
+    self.getPhoneDataUrl = "api/DataApi/GetPhoneData";
+
     // Route operations
 
     // Other private operations
