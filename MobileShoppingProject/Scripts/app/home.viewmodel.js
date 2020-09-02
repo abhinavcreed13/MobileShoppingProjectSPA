@@ -23,6 +23,9 @@
                         url: app.dataModel.getPhoneDataUrl,
                         contentType: "application/json; charset=utf-8",
                         success: function (phoneDataList) {
+                            $(phoneDataList).each(function (item) {
+                                this.isAddedToCart = ko.observable(this.isAddedToCart);
+                            });
                             // tell knockout to update UI
                             self.phoneData(phoneDataList);
                         }
@@ -34,7 +37,22 @@
     });
 
     self.addToCart = function (record) {
+        $.ajax({
+            method: 'post',
+            url: "api/DataApi/AddToCart",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(record),
+            success: function (data) {
+                if (data.added) {
+                    record.isAddedToCart(true);
+                }
+            }
+        });
+    }
+
+    self.removeFromCart = function (record) {
         console.log(record);
+        record.isAddedToCart(false);
     }
 
     return self;

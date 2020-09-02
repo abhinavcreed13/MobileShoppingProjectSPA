@@ -22,8 +22,18 @@
                 <td data-bind="text: type"></td>
                 <td data-bind="text: price"></td>
                 <td>
+                    <!-- ko if: isAddedToCart() -->
+                    <button class="btn btn-success"
+                            data-bind="click: $parent.removeFromCart.bind($data)">
+                        Remove From Cart
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko if: !isAddedToCart() -->
                     <button class="btn btn-primary"
-                            data-bind="click: $parent.addToCart.bind($data)">Add To Cart</button>
+                            data-bind="click: $parent.addToCart.bind($data)">
+                        Add To Cart
+                    </button>
+                    <!-- /ko -->
                 </td>
             </tr>
         </tbody>
