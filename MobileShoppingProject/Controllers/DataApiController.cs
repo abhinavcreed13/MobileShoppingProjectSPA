@@ -13,7 +13,7 @@ namespace MobileShoppingProject.Controllers
         testEntities _db = new testEntities();
 
         public static List<MobilePhoneDataViewModel> cartItems = new List<MobilePhoneDataViewModel>();
-        
+
         public string Get()
         {
             return "Welcome to mobile shop!";
@@ -35,6 +35,11 @@ namespace MobileShoppingProject.Controllers
             return dataToSend;
         }
 
+        public List<MobilePhoneDataViewModel> GetCartItems()
+        {
+            return cartItems;
+        }
+
         [HttpPost]
         public object AddToCart(MobilePhoneDataViewModel phoneObject)
         {
@@ -42,6 +47,16 @@ namespace MobileShoppingProject.Controllers
             return new
             {
                 added = true
+            };
+        }
+
+        [HttpPost]
+        public object RemoveFromCart(MobilePhoneDataViewModel phoneObject)
+        {
+            cartItems.RemoveAll(item => item.DeviceNumer == phoneObject.DeviceNumer);
+            return new
+            {
+                removed = true
             };
         }
     }

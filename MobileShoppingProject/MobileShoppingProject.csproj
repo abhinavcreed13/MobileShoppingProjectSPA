@@ -263,6 +263,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\app\cart.viewmodel.js" />
     <Content Include="Scripts\app\_run.js" />
     <Content Include="Scripts\app\app.datamodel.js" />
     <Content Include="Scripts\app\app.viewmodel.js" />
@@ -356,6 +357,7 @@
     <Content Include="ShoppingDataModel.edmx.diagram">
       <DependentUpon>ShoppingDataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Home\_Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,8 @@
 
     self.phoneData = ko.observableArray();
 
+    dataModel.showHome = ko.observable(true);
+
     Sammy(function () {
         this.get('#home', function () {
             // Make a call to the protected Web API by passing in a Bearer Authorization Header
@@ -16,7 +18,10 @@
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     // telling knockout to update that header
+
                     self.myApiText(data);
+                    dataModel.showCart(false);
+                    dataModel.showHome(true);
 
                     $.ajax({
                         method: 'get',
@@ -51,8 +56,17 @@
     }
 
     self.removeFromCart = function (record) {
-        console.log(record);
-        record.isAddedToCart(false);
+        $.ajax({
+            method: 'post',
+            url: "api/DataApi/RemoveFromCart",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(record),
+            success: function (data) {
+                if (data.removed) {
+                    record.isAddedToCart(false);
+                }
+            }
+        });
     }
 
     return self;
